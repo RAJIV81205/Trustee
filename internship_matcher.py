@@ -379,7 +379,7 @@ class InternshipMatchingModel:
         
         return explanations
     
-    def _extract_individual_scores(self, user_prefs: Dict, internship: pd.Series) -> Dict[str, any]:
+    def _extract_individual_scores(self, user_prefs: Dict, internship: pd.Series) -> Dict[str, float]:
         """Extract refined individual matching scores for detailed breakdown"""
         scores = {}
         
@@ -395,7 +395,7 @@ class InternshipMatchingModel:
         # Refined location matching
         scores['location_matching'] = round(self._calculate_refined_location_score(user_prefs['location'], internship['location']), 1)
         
-        # Sector match (binary but with explanation)
+        # Sector match (binary but refined)
         sector_match = 1.0 if user_prefs['sector'].lower() == internship['sector'].lower() else 0.0
         scores['sector_matching'] = 10.0 if sector_match == 1.0 else 3.0  # Some cross-sector opportunities
         
@@ -404,10 +404,6 @@ class InternshipMatchingModel:
         
         # Refined duration matching
         scores['duration_matching'] = round(self._calculate_refined_duration_score(user_prefs['duration'], internship['duration']), 1)
-        
-        # Generate explanations
-        explanations = self._generate_score_explanations(user_prefs, internship, scores)
-        scores['explanations'] = explanations
         
         return scores
     
@@ -526,6 +522,8 @@ class InternshipMatchingModel:
             match_data = {
                 'id': int(internship['id']),
                 'name': internship['name'],
+                'company_name': internship['company_name'],
+                'company_description': internship['company_description'],
                 'location': internship['location'],
                 'stipend': int(internship['stipend']),
                 'requirements': internship['requirements'],

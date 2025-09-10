@@ -59,6 +59,8 @@ Get all internships ranked by ML-predicted matching scores.
     {
       "id": 2,
       "name": "Data Science Intern",
+      "company_name": "DataVision Analytics",
+      "company_description": "AI-powered analytics company helping businesses make data-driven decisions",
       "location": "Karnataka",
       "stipend": 30000,
       "requirements": "Python,SQL,Machine Learning",
@@ -73,16 +75,7 @@ Get all internships ranked by ML-predicted matching scores.
         "location_matching": 10.0,
         "sector_matching": 10.0,
         "stipend_matching": 9.2,
-        "duration_matching": 10.0,
-        "explanations": {
-          "skills_explanation": "Excellent match! You have 2 matching skills: python, machine learning",
-          "experience_explanation": "Perfect experience level for this internship",
-          "mode_explanation": "Perfect work mode match",
-          "location_explanation": "Perfect location match",
-          "sector_explanation": "Perfect sector alignment",
-          "stipend_explanation": "Stipend ₹30000 is within your expected range",
-          "duration_explanation": "Perfect duration match"
-        }
+        "duration_matching": 10.0
       }
     }
   ],
@@ -182,11 +175,10 @@ matches = response.json()
 
 # Process results
 for match in matches['matches']:
-    print(f"ID: {match['id']} - {match['name']}: {match['matching_score']}/10")
+    print(f"ID: {match['id']} - {match['name']} at {match['company_name']}: {match['matching_score']}/10")
+    print(f"  Company: {match['company_description']}")
     scores = match['individual_scores']
-    print(f"  Skills: {scores['skills_matching']}/10 - {scores['explanations']['skills_explanation']}")
-    print(f"  Stipend: {scores['stipend_matching']}/10 - {scores['explanations']['stipend_explanation']}")
-    print(f"  Location: {scores['location_matching']}/10 - {scores['explanations']['location_explanation']}")
+    print(f"  Skills: {scores['skills_matching']}/10, Stipend: {scores['stipend_matching']}/10, Location: {scores['location_matching']}/10")
 ```
 
 ## 🚀 Deployment Ready
