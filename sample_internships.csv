@@ -1,21 +1,21 @@
-name,location,stipend,requirements,mode,sector,duration
-Software Development Intern,Maharashtra,25000,"Python,JavaScript,React",Remote,tech,3
-Data Science Intern,Karnataka,30000,"Python,SQL,Machine Learning",Hybrid,tech,6
-Marketing Intern,Delhi,15000,"Digital Marketing,Social Media",On-site,non-tech,2
-Web Development Intern,Maharashtra,20000,"HTML,CSS,JavaScript,Node.js",Remote,tech,3
-Finance Intern,Maharashtra,18000,"Excel,Financial Analysis",On-site,non-tech,6
-AI/ML Intern,Karnataka,35000,"Python,TensorFlow,Deep Learning",Hybrid,tech,6
-Content Writing Intern,Delhi,12000,"Content Writing,SEO",Remote,non-tech,3
-Backend Developer Intern,Telangana,28000,"Java,Spring Boot,MySQL",On-site,tech,6
-HR Intern,Tamil Nadu,14000,"Communication,MS Office",On-site,non-tech,2
-Mobile App Development Intern,Karnataka,32000,"React Native,Flutter,Dart",Hybrid,tech,6
-Business Analyst Intern,Maharashtra,22000,"SQL,Excel,Analytics",Hybrid,non-tech,3
-DevOps Intern,Maharashtra,26000,"Docker,Kubernetes,AWS",Remote,tech,6
-Graphic Design Intern,Delhi,16000,"Photoshop,Illustrator,Design",Remote,non-tech,3
-Full Stack Developer Intern,Karnataka,30000,"MERN Stack,MongoDB",Hybrid,tech,6
-Sales Intern,Maharashtra,13000,"Sales,Communication",On-site,non-tech,2
-Python Developer Intern,Gujarat,24000,"Python,Django,PostgreSQL",Hybrid,tech,4
-Digital Marketing Intern,Rajasthan,16000,"SEO,Google Ads,Analytics",Remote,non-tech,3
-React Developer Intern,Karnataka,28000,"React,Redux,JavaScript",On-site,tech,6
-Data Analyst Intern,Haryana,22000,"Python,Excel,Tableau",Hybrid,tech,3
-UI/UX Design Intern,Maharashtra,20000,"Figma,Adobe XD,Prototyping",Remote,tech,4
+id,name,location,stipend,requirements,mode,sector,duration
+1,Software Development Intern,Maharashtra,25000,"Python,JavaScript,React",Remote,tech,3
+2,Data Science Intern,Karnataka,30000,"Python,SQL,Machine Learning",Hybrid,tech,6
+3,Marketing Intern,Delhi,15000,"Digital Marketing,Social Media",On-site,non-tech,2
+4,Web Development Intern,Maharashtra,20000,"HTML,CSS,JavaScript,Node.js",Remote,tech,3
+5,Finance Intern,Maharashtra,18000,"Excel,Financial Analysis",On-site,non-tech,6
+6,AI/ML Intern,Karnataka,35000,"Python,TensorFlow,Deep Learning",Hybrid,tech,6
+7,Content Writing Intern,Delhi,12000,"Content Writing,SEO",Remote,non-tech,3
+8,Backend Developer Intern,Telangana,28000,"Java,Spring Boot,MySQL",On-site,tech,6
+9,HR Intern,Tamil Nadu,14000,"Communication,MS Office",On-site,non-tech,2
+10,Mobile App Development Intern,Karnataka,32000,"React Native,Flutter,Dart",Hybrid,tech,6
+11,Business Analyst Intern,Maharashtra,22000,"SQL,Excel,Analytics",Hybrid,non-tech,3
+12,DevOps Intern,Maharashtra,26000,"Docker,Kubernetes,AWS",Remote,tech,6
+13,Graphic Design Intern,Delhi,16000,"Photoshop,Illustrator,Design",Remote,non-tech,3
+14,Full Stack Developer Intern,Karnataka,30000,"MERN Stack,MongoDB",Hybrid,tech,6
+15,Sales Intern,Maharashtra,13000,"Sales,Communication",On-site,non-tech,2
+16,Python Developer Intern,Gujarat,24000,"Python,Django,PostgreSQL",Hybrid,tech,4
+17,Digital Marketing Intern,Rajasthan,16000,"SEO,Google Ads,Analytics",Remote,non-tech,3
+18,React Developer Intern,Karnataka,28000,"React,Redux,JavaScript",On-site,tech,6
+19,Data Analyst Intern,Haryana,22000,"Python,Excel,Tableau",Hybrid,tech,3
+20,UI/UX Design Intern,Maharashtra,20000,"Figma,Adobe XD,Prototyping",Remote,tech,4

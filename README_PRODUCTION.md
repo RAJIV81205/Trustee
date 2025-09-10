@@ -43,7 +43,10 @@ Get all internships ranked by ML-predicted matching scores.
   "mode": "Hybrid",
   "location": "Karnataka",
   "sector": "tech",
-  "stipend": 25000,
+  "stipend": {
+    "min_stipend": 20000,
+    "max_stipend": 30000
+  },
   "duration": 6
 }
 ```
@@ -54,6 +57,7 @@ Get all internships ranked by ML-predicted matching scores.
 {
   "matches": [
     {
+      "id": 2,
       "name": "Data Science Intern",
       "location": "Karnataka",
       "stipend": 30000,
@@ -61,10 +65,28 @@ Get all internships ranked by ML-predicted matching scores.
       "mode": "Hybrid",
       "sector": "tech",
       "duration": 6,
-      "matching_score": 9.22
+      "matching_score": 9.22,
+      "individual_scores": {
+        "skills_matching": 8.5,
+        "experience_matching": 9.5,
+        "mode_matching": 10.0,
+        "location_matching": 10.0,
+        "sector_matching": 10.0,
+        "stipend_matching": 9.2,
+        "duration_matching": 10.0,
+        "explanations": {
+          "skills_explanation": "Excellent match! You have 2 matching skills: python, machine learning",
+          "experience_explanation": "Perfect experience level for this internship",
+          "mode_explanation": "Perfect work mode match",
+          "location_explanation": "Perfect location match",
+          "sector_explanation": "Perfect sector alignment",
+          "stipend_explanation": "Stipend ₹30000 is within your expected range",
+          "duration_explanation": "Perfect duration match"
+        }
+      }
     }
   ],
-  "total_matches": 20
+  "total_matches": 5
 }
 ```
 
@@ -147,7 +169,10 @@ data = {
     "mode": "Remote",
     "location": "Maharashtra",
     "sector": "tech",
-    "stipend": 20000,
+    "stipend": {
+        "min_stipend": 18000,
+        "max_stipend": 25000
+    },
     "duration": 3
 }
 
@@ -157,7 +182,11 @@ matches = response.json()
 
 # Process results
 for match in matches['matches']:
-    print(f"{match['name']}: {match['matching_score']}/10")
+    print(f"ID: {match['id']} - {match['name']}: {match['matching_score']}/10")
+    scores = match['individual_scores']
+    print(f"  Skills: {scores['skills_matching']}/10 - {scores['explanations']['skills_explanation']}")
+    print(f"  Stipend: {scores['stipend_matching']}/10 - {scores['explanations']['stipend_explanation']}")
+    print(f"  Location: {scores['location_matching']}/10 - {scores['explanations']['location_explanation']}")
 ```
 
 ## 🚀 Deployment Ready

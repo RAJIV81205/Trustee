@@ -35,7 +35,10 @@ def test_api():
         "mode": "Hybrid",
         "location": "Karnataka",
         "sector": "tech",
-        "stipend": 25000,
+        "stipend": {
+            "min_stipend": 20000,
+            "max_stipend": 35000
+        },
         "duration": 6
     }
     
@@ -48,8 +51,13 @@ def test_api():
             # Show top 3 matches
             print("   Top 3 matches:")
             for i, match in enumerate(result['matches'][:3], 1):
-                print(f"   {i}. {match['name']} - Score: {match['matching_score']}/10")
+                print(f"   {i}. ID: {match['id']} - {match['name']} - Score: {match['matching_score']}/10")
                 print(f"      Location: {match['location']}, Stipend: ₹{match['stipend']}")
+                scores = match['individual_scores']
+                print(f"      Skills: {scores['skills_matching']}/10, Location: {scores['location_matching']}/10, Stipend: {scores['stipend_matching']}/10")
+                if 'explanations' in scores:
+                    print(f"      Skills: {scores['explanations']['skills_explanation']}")
+                    print(f"      Stipend: {scores['explanations']['stipend_explanation']}")
         else:
             print(f"   ❌ Matching failed: {response.status_code}")
             print(f"   Error: {response.text}")

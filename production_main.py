@@ -73,7 +73,10 @@ async def match_internships(user_preferences: UserPreferences):
             'mode': user_preferences.mode.value,
             'location': user_preferences.location,
             'sector': user_preferences.sector.value,
-            'stipend': user_preferences.stipend,
+            'stipend': {
+                'min_stipend': user_preferences.stipend.min_stipend,
+                'max_stipend': user_preferences.stipend.max_stipend
+            },
             'duration': user_preferences.duration
         }
         
@@ -109,7 +112,10 @@ async def match_internships(user_preferences: UserPreferences):
                     "mode": "Hybrid",
                     "location": "Karnataka",
                     "sector": "tech",
-                    "stipend": 25000,
+                    "stipend": {
+                        "min_stipend": 20000,
+                        "max_stipend": 30000
+                    },
                     "duration": 6
                 }
             }
