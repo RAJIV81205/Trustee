@@ -13,7 +13,8 @@
     "axios": "^1.12.2",
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "puppeteer": "^24.22.3",
+    "puppeteer-core": "^21.11.0",
+    "chrome-aws-lambda": "^10.1.0",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-adblocker": "^2.13.6",
     "puppeteer-extra-plugin-stealth": "^2.11.2"

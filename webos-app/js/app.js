@@ -1,13 +1,12 @@
 class BrowserProxyApp {
     constructor() {
-        this.serverIp = localStorage.getItem('serverIp') || '192.168.29.7';
+        this.backendUrl = 'https://debrows.vercel.app';
         this.currentUrl = '';
         this.init();
     }
 
     init() {
         this.bindEvents();
-        this.loadSettings();
 
         // Focus on URL input for TV remote navigation
         document.getElementById('urlInput').focus();
@@ -21,11 +20,6 @@ class BrowserProxyApp {
                 this.loadWebsite();
             }
         });
-
-        // Settings
-        document.getElementById('settingsButton').addEventListener('click', () => this.toggleSettings());
-        document.getElementById('saveSettings').addEventListener('click', () => this.saveSettings());
-        document.getElementById('testConnection').addEventListener('click', () => this.testConnection());
 
         // Error handling
         document.getElementById('retryButton').addEventListener('click', () => this.loadWebsite());
@@ -69,61 +63,7 @@ class BrowserProxyApp {
         }
     }
 
-    toggleSettings() {
-        const panel = document.getElementById('settingsPanel');
-        panel.classList.toggle('hidden');
 
-        if (!panel.classList.contains('hidden')) {
-            document.getElementById('serverIp').focus();
-        }
-    }
-
-    loadSettings() {
-        if (this.serverIp) {
-            document.getElementById('serverIp').value = this.serverIp;
-        }
-    }
-
-    saveSettings() {
-        const serverIp = document.getElementById('serverIp').value.trim();
-        if (serverIp) {
-            this.serverIp = serverIp;
-            localStorage.setItem('serverIp', serverIp);
-            this.showStatus('Settings saved!', 'success');
-            setTimeout(() => this.toggleSettings(), 1000);
-        } else {
-            this.showStatus('Please enter a valid IP address', 'error');
-        }
-    }
-
-    async testConnection() {
-        if (!this.serverIp) {
-            this.showStatus('Please enter server IP first', 'error');
-            return;
-        }
-
-        try {
-            const response = await fetch(`http://${this.serverIp}:3001/api/health`);
-            if (response.ok) {
-                this.showStatus('Connection successful!', 'success');
-            } else {
-                this.showStatus('Server responded with error', 'error');
-            }
-        } catch (error) {
-            this.showStatus('Connection failed', 'error');
-        }
-    }
-
-    showStatus(message, type) {
-        const status = document.getElementById('connectionStatus');
-        status.textContent = message;
-        status.className = `status ${type}`;
-
-        setTimeout(() => {
-            status.textContent = '';
-            status.className = 'status';
-        }, 3000);
-    }
 
     async loadWebsite() {
         const url = document.getElementById('urlInput').value.trim();
@@ -133,10 +73,7 @@ class BrowserProxyApp {
             return;
         }
 
-        if (!this.serverIp) {
-            this.showError('Please configure server IP in settings first');
-            return;
-        }
+
 
         this.currentUrl = url;
         this.showLoading('Loading website...');
@@ -144,7 +81,7 @@ class BrowserProxyApp {
         try {
             this.updateLoadingMessage('Loading website content...');
 
-            const response = await fetch(`http://${this.serverIp}:3001/api/fetch-page`, {
+            const response = await fetch(`${this.backendUrl}/api/fetch-page`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -425,7 +362,7 @@ class BrowserProxyApp {
                 <p>✅ Complex sites with security layers</p>
                 <p>✅ Streaming and video content</p>
                 <p>✅ Mobile-optimized versions</p>
-                <p>First, configure your laptop's IP address in settings.</p>
+                <p>Just enter a URL above to get started!</p>
             </div>
         `;
         this.hideLoading();
