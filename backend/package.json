@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "start": "node server.js",
-    "simple": "nodemon server-simple.js",
     "dev": "nodemon server.js",
     "test": "node test-server.js"
   },
